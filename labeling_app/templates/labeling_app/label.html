@@ -21,14 +21,14 @@
                 <br><br>Beispiel: Eine Nachricht in der behauptet wird die Booster-Impfung im Speziellen sei nutzlos würde auch unter das Label "Wirksamkeit nicht erwiesen" fallen.
               </span>
             </span> (möglicherweise keine) und drücke dann auf Weiter.<br>
-            Wenn du die Nachricht überspringen willst (z. B. weil sie sehr lang ist), dann lade einfach die Seite neu.
+            Wenn du eine andere Nachricht angezeigt bekommen willst, dann lade einfach die Seite neu.
         </p>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="hidden" name="message_id" value="{{ message.id }}">
             <input type="hidden" name="user_id" value="{{ user.id }}">
-            <button type="submit" class="button" style="vertical-align:middle"><span>Weiter </span></button>
+            <button type="submit" class="weiter-button" style="vertical-align:middle"><span>Weiter </span></button>
         </form>
     </div>
 </body>
@@ -36,7 +36,6 @@
 <style lang="css">
   .tooltip {
     position: relative;
-    display: inline-block;
     border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
   }
 
@@ -98,46 +97,5 @@
   .hovertext:hover:before {
     opacity: 1;
     visibility: visible;
-  }
-
-  /* Credit: https://www.w3schools.com/csS/css3_buttons.asp */
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #348ee9;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 16px;
-    padding: 20px;
-    width: 160px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-
-  .button:hover span {
-    padding-right: 25px;
-  }
-
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
   }
 </style>
