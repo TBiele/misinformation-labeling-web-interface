@@ -1,0 +1,143 @@
+<head>
+    <meta charset="utf-8">
+    <title>Nachrichten labeln</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+</head>
+
+<body>
+    <div class="message">
+        <p class="from-them">
+            {{ message.content }}
+        </p>
+    </div>
+    <div class="misconceptions">
+        <h4>Welche Falschinformationen bzgl. der COVID-19-Impfungen kommmen in dieser Nachricht zum Ausdruck?</h4>
+        <p>
+            Markiere alle, die 
+            <span class="tooltip">passen
+              <span class="tooltiptext">
+                Der Inhalt der Nachricht muss nicht zu 100 Prozent mit der Beschreibung des Labels übereinstimmen.
+                <br><br>Beispiel: Eine Nachricht in der behauptet wird die Booster-Impfung im Speziellen sei nutzlos würde auch unter das Label "Wirksamkeit nicht erwiesen" fallen.
+              </span>
+            </span> (möglicherweise keine) und drücke dann auf Weiter.<br>
+            Wenn du die Nachricht überspringen willst (z. B. weil sie sehr lang ist), dann lade einfach die Seite neu.
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="message_id" value="{{ message.id }}">
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <button type="submit" class="button" style="vertical-align:middle"><span>Weiter </span></button>
+        </form>
+    </div>
+</body>
+
+<style lang="css">
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 14px 14px;
+    border-radius: 6px;
+    top: 100%;
+    left: 50%;
+    margin-left: -200px;
+    
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .misconceptions {
+    margin: 0 auto 1rem;
+    max-width: 800px;
+  }
+
+  label {
+    font-family: "Helvetica";
+    font-size: 1.25rem;
+  }
+
+  .hovertext {
+    position: relative;
+  }
+  
+  .hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 400px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px 8px;
+    transition: opacity 1s ease-in-out;
+  
+    position: absolute;
+    z-index: 1;
+    left: 400px;
+    top: -10px;
+  }
+  
+  .hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Credit: https://www.w3schools.com/csS/css3_buttons.asp */
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #348ee9;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 160px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+</style>

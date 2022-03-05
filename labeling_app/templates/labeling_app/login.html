@@ -1,0 +1,14 @@
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+</head>
+
+<body>
+    <p>Bitte gib (d)einen Namen an. Dieser dient dazu, dass dir Nachrichten nicht mehrmals angezeigt werden.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Weiter</button>
+    </form>
+</body>
