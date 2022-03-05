@@ -127,10 +127,10 @@ p[class^="from-"].emoji::before {
     text-align: center;
     font-size: 16px;
     padding: 20px;
-    width: 160px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    width: 100%;
 }
 
 .weiter-button span {
