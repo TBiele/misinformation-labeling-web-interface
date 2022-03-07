@@ -46,6 +46,9 @@ def confirm_name(request):
 def welcome(request):
     return render(request, 'labeling_app/welcome.html')
 
+def warning(request):
+    return render(request, 'labeling_app/warning.html')
+
 # def get_messages_not_labeled_by_user(request):
 #     if not 'user' in request.session.keys():
 #         # If the user is not logged in, go to login view
