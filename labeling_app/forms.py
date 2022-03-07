@@ -30,7 +30,7 @@ class CustomCheckboxSelectMultiple(forms.CheckboxSelectMultiple):
                     str(subvalue) in value
                 )
                 has_selected |= selected
-                descriptions = [misconception.description for misconception in Misconception.objects.all()]
+                descriptions = [misconception.description for misconception in Misconception.objects.all().order_by('list_position')]
                 description = descriptions[index]
                 subgroup.append(self.create_option(
                     name, subvalue, sublabel, selected, index,
@@ -73,7 +73,7 @@ class LoginForm(forms.Form):
 
 class LabelForm(forms.Form):
     # Populate multiple choice checkboxes with misconceptions
-    misconceptions = Misconception.objects.all()
+    misconceptions = Misconception.objects.all().order_by('list_position')
     options = [(misconception.id, misconception.name) for misconception in misconceptions]
     descriptions = [misconception.description for misconception in misconceptions]
     selected_misconception_ids = CustomMultipleChoiceField(label='', widget=CustomCheckboxSelectMultiple, choices=options, descriptions=descriptions, required=False)
