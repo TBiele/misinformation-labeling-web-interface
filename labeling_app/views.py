@@ -12,7 +12,8 @@ def index(request):
 
 
 def login(request):
-    # In case of a POST request, create a form instance and populate it with data from the request
+    # In case of a POST request, create a form instance and populate it with data from
+    # the request
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -63,9 +64,10 @@ def warning(request):
 
 def labelling(request):
     # If the user is not logged in, go to login view
-    if not "user" in request.session.keys():
+    if "user" not in request.session.keys():
         return HttpResponseRedirect("login")
-    # In case of a POST request, create a form instance and populate it with data from the request
+    # In case of a POST request, create a form instance and populate it with data from
+    # the request
     if request.method == "POST":
         form_data = request.POST
         form = LabelForm(request.POST)
@@ -78,7 +80,8 @@ def labelling(request):
                     user=User.objects.get(pk=form_data["user_id"]),
                 )
                 label.save()
-            # If no label was selected, create an entry indicating that the message was labeled, even though no labels were assigned
+            # If no label was selected, create an entry indicating that the message was
+            # labeled, even though no labels were assigned
             if len(selected_misconception_ids) == 0:
                 label = MessageMisconception(
                     message=TelegramMessage.objects.get(pk=form_data["message_id"]),
@@ -89,8 +92,9 @@ def labelling(request):
             return HttpResponseRedirect("label")
         else:
             print("Form invalid")
-    # In case of a GET request (or any other method), retrieve a random message to show and create a labeling form
-    # Or if no message to label remains, redirect to 'done' page
+    # In case of a GET request (or any other method), retrieve a random message to show
+    # and create a labeling form. Or if no message to label remains, redirect to 'done'
+    # page.
     user = User.objects.filter(name=request.session["user"])[0]
     unlabeled_messages = list(
         TelegramMessage.objects.exclude(
