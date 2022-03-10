@@ -25,14 +25,21 @@ class Misconception(models.Model):
 
 class TelegramMessage(models.Model):
     content = models.CharField(max_length=200)
-    hash = models.CharField(max_length=20)
+    id = models.CharField(
+        max_length=20,
+        primary_key=True,
+    )  # meant to contain a hash of the message content
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class MessageMisconception(models.Model):
-    message = models.ForeignKey(TelegramMessage, on_delete=models.CASCADE)
+    message = models.ForeignKey(
+        TelegramMessage,
+        related_name="labels",
+        on_delete=models.CASCADE,
+    )
     misconception = models.ForeignKey(
-        Misconception, on_delete=models.CASCADE, null=True
+        Misconception, related_name="instances", on_delete=models.CASCADE, null=True
     )
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
