@@ -94,7 +94,7 @@ class CustomMultipleChoiceField(forms.MultipleChoiceField):
 
 
 class LoginForm(forms.Form):
-    user_name = forms.CharField(label="Bitte gib (d)einen Namen ein:", max_length=100)
+    user_name = forms.CharField(label="Bitte gib (d)einen Namen* ein:", max_length=100)
 
 
 class LabelForm(forms.Form):
