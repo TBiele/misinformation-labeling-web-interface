@@ -1,44 +1,50 @@
 <head>
-    <meta charset="utf-8">
-    <title>Nachrichten labeln</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+  <meta charset="utf-8">
+  <title>Nachrichten labeln</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 
 <body>
-    <div class="message">
-        <p class="from-them">
-            {{ message.content }}
-        </p>
-    </div>
-    <div class="misconceptions">
-        <h4>Welche Falschinformationen bzgl. der COVID-19-Impfungen kommmen in dieser Nachricht zum Ausdruck?</h4>
-        <p>
-            Markiere alle, die 
-            <span class="tooltip">passen
-              <span class="tooltiptext">
-                Der Inhalt der Nachricht muss nicht zu 100 Prozent mit der Beschreibung des Labels übereinstimmen.
-                <br><br>Beispiel: Eine Nachricht in der behauptet wird die Booster-Impfung im Speziellen sei nutzlos würde auch unter das Label "Wirksamkeit nicht erwiesen" fallen.
-                <br><br>Wähle die Zuordnung nicht bloß auf Basis dessen was die Nachricht explizit sagt, sondern auch dessen was sie andeutet oder impliziert.
-                <br><br>Falls du dir unsicher bist: Überlege dir wie eine faktenbasierte Widerlegung der unten genannten Falschinformation aussehen könnte. Wäre diese auch passend, um die oben stehende Nachricht zu entkräften?
-              </span>
-            </span> (möglicherweise keine) und drücke dann auf Weiter.<br>
-            Wenn du eine andere Nachricht angezeigt bekommen willst, dann lade einfach die Seite neu.
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="hidden" name="message_id" value="{{ message.id }}">
-            <input type="hidden" name="user_id" value="{{ user.id }}">
-            <button type="submit" class="weiter-button"><span>Weiter </span></button>
-        </form>
-    </div>
+  <div class="message">
+    <p class="from-them">
+      {{ message.content }}
+    </p>
+  </div>
+  <div class="misconceptions">
+    <h4>Welche Falschinformationen bzgl. der COVID-19-Impfungen kommmen in dieser Nachricht zum Ausdruck?</h4>
+    <p>
+      Markiere alle, die
+      <span class="tooltip">passen
+        <span class="tooltiptext">
+          Der Inhalt der Nachricht muss nicht zu 100 Prozent mit der Beschreibung des Labels übereinstimmen.
+          <br><br>Wähle die Zuordnung nicht bloß auf Basis dessen was die Nachricht explizit sagt, sondern auch dessen
+          was sie andeutet oder impliziert.
+          <br><br>Falls du dir unsicher bist: Überlege dir wie eine faktenbasierte Widerlegung der unten genannten
+          Falschinformation aussehen könnte. Wäre diese auch passend, um die oben stehende Nachricht zu entkräften?
+        </span>
+      </span> (möglicherweise keine) und drücke dann auf Weiter.<br>
+      Wenn du eine andere Nachricht angezeigt bekommen willst, dann lade einfach die Seite neu.
+    </p>
+    <p>
+      Wenn du mehr Hintergrundinformationen haben möchtest, klicke <a href="facts">hier</a>, um zu den Faktenchecks zu
+      gelangen.
+    </p>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="hidden" name="message_id" value="{{ message.id }}">
+      <input type="hidden" name="user_id" value="{{ user.id }}">
+      <button type="submit" class="weiter-button"><span>Weiter </span></button>
+    </form>
+  </div>
 </body>
 
 <style lang="css">
   .tooltip {
     position: relative;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
   }
 
   /* Tooltip text */
@@ -53,7 +59,7 @@
     top: 100%;
     left: 50%;
     margin-left: -200px;
-    
+
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
@@ -77,7 +83,7 @@
   .hovertext {
     position: relative;
   }
-  
+
   .hovertext:before {
     content: attr(data-hover);
     visibility: hidden;
@@ -89,13 +95,13 @@
     border-radius: 5px;
     padding: 8px 8px;
     transition: opacity 1s ease-in-out;
-  
+
     position: absolute;
     z-index: 1;
     left: 400px;
     top: -10px;
   }
-  
+
   .hovertext:hover:before {
     opacity: 1;
     visibility: visible;

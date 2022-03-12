@@ -11,4 +11,5 @@ urlpatterns = [
     path("warning", views.warning, name="warning"),
     path("label", views.labelling, name="label"),
     path("done", views.done, name="done"),
+    path("facts", views.facts, name="facts"),
 ]

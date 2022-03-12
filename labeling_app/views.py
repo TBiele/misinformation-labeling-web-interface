@@ -114,3 +114,7 @@ def labelling(request):
 
 def done(request):
     return render(request, "labeling_app/done.html")
+
+
+def facts(request):
+    return render(request, "labeling_app/facts.html")
