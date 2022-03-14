@@ -2,26 +2,19 @@
     <meta charset="utf-8">
     <title>Start</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 
 <body>
     <div>
-        <p>Diese Seite ist Teil meines Masterarbeitsprojekts zur Erkennung und Bekämpfung von Falschinformationen beim Messenger Telegram. Wenn du hier gelandet bist, dann wahrscheinlich, weil ich dich um Unterstützung beim Kategorisieren von Nachrichten gebeten habe. Wenn du die Einleitung überspringen und direkt damit loslegen willst, dann klicke einfach <a href="warning">hier</a>.</p>
-        <p>Ich möchte zunächst kurz erklären worum es in meiner Masterarbeit geht und was der Sinn und Zweck des Ganzen hier ist. Ziel meiner Masterarbeit ist es eine "Spracherkennungsmaschine" zu bauen, die in der Lage ist eine Reihe von ausgewählten Falschinformationen automatisch zu erkennen. Genauer gesagt soll sie Falschinformationen in Bezug auf die COVID-19-Impfungen in Nachrichten aus Telegram-Chats erkennen. Damit diese Maschine funktionieren kann, braucht sie Trainingsdaten, d. h. Nachrichten denen bereits die korrekten Labels zugeordnet wurden. Anhand dieser Daten kann die Maschine lernen Muster in der Sprache zu erkennen anhand derer sie auch neue Nachrichten selbstständig kategorisieren kann.</p>
-        <p>Nun, was hätten wir davon eine solche Maschine bzw. ein solches Sprachmodell bauen zu können? Hier ein mögliches Anwendungs-Szenario:</p>
-        <p>Stell dir vor du bist Mitglied einer Messenger-Gruppe, beispielsweise mit Menschen aus deiner Verwandschaft, den Eltern aus der Kindergartengruppe oder den Mitgliedern des Sportvereins. In diese Gruppe postet eine Person folgende Nachricht:</p>
-    </div>
-    <div class="message"> 
-        <p class="from-them">
-            Ich werde mich ganz sicher nicht impfen lassen! Wieso sollte ich das Risiko von schweren Impfschäden wie Herzmuskelentzündungen, Schlaganfälle, etc in Kauf nehmen? Für ein Virus, das für Menschen mit einem gesunden Immunsystem überhaupt keine Bedrohung darstellt. Was hier seit zwei Jahren passiert hat mit gesundem Menschenverstand nichts mehr zu tun. Wie es scheint stehen da ganz andere Interessen dahinter... Ich verzichte jedenfalls darauf mich einem Genexperiment unterziehen zu lassen und mir etwas in den Körper injizieren zu lassen dessen Langzeitfolgen noch überhaupt nicht absehbar sind!
+        <h2>Herzlich Willkommen!</h2>
+        <p>Diese Webseite ist Teil meines Masterarbeitsprojekts zur Erkennung und Bekämpfung von Falschinformationen
+            beim Messenger Telegram.</p>
+        <p>
+            Wenn du hier gelandet bist, dann wahrscheinlich, weil ich dich um Unterstützung beim Kategorisieren von
+            Nachrichten gebeten habe. Wenn du direkt damit loslegen willst, dann klicke einfach <a
+                href="warning">hier</a>.
         </p>
-    </div>
-    <div>
-        <p>Du hast gerade nicht die Kapazitäten dich mit all diesen Behauptungen auseinanderzusetzen, aber willst die Nachricht auch nicht unwidersprochen stehen lassen. Also leitest du sie an einen Fake-News-Bot weiter. Dieser verwendet ein Sprachmodell wie das welches ich in meiner Masterarbeit entwickeln möchte. Damit analysiert er die Nachricht und erkennt, dass sie bestimmte Falschinformationen enthält. Für jede der erkannten Falschinformationen liefert dir der Bot eine mögliche Entgegnung mit Links zu Faktenchecks, Artikeln und weiteren Quellen. Das alles kannst du nun verwenden, um auf die Nachricht zu antworten.</p>
-        <p>Im Optimalfall bringst du den Menschen so dazu die Falschinformationen und Verschwörungserzählungen, auf die er im Internet stößt etwas kritischer zu hinterfragen (in diesem Fall wohl eher unwahrscheinlich). Doch auch wenn nicht, dann gibst du den anderen Mitgliedern der Gruppe, insbesondere denen die vielleicht durch die ursprüngliche Nachricht verunsichert sind, die Möglichkeit sich auf Basis von Fakten zu informieren und das Geschriebene einordnen zu können. Alleine dadurch, dass du widersprichst, sendest du ein deutliches Signal. Viele Menschen werden in ihrer Meinungsbildung maßgeblich dadurch beeinflusst was Menschen in ihrem direkten Umfeld denken.</p>
-        <p>Falschinformationen und Verschwörungserzählungen stellen eine Bedrohung für den gesellschaftlichen Frieden und Zusammenhalt dar. Sie machen es unmöglich einen Konsens zu finden, auf Basis dessen sich die großen Krisen unserer Zeit gemeinsam bewältigen lassen. Ihnen etwas entgegenzusetzen und dabei Fakten und humanistische Werte hochzuhalten ist eine wichtige Aufgabe zu der wir alle einen Beitrag leisten können, ob im privaten oder im öffentlichen Diskurs. Ich möchte mit meiner Masterarbeit einen Beitrag zur Entwicklung digitaler Werkzeuge leisten, die uns dabei unterstützen können. Die in meiner Arbeit entwickelten Systeme und Methoden lassen sich dabei für die Bekämpfung von Falschinformationen aller Art einsetzen. Nicht bloß derer in Bezug auf COVID-19.</p>
-        <p>Vielen Dank, dass du bis hierher gelesen hast und mich in meinem Vorhaben unterstützen möchtest!</p>
-        <a href="warning">Klicke hier, um loszulegen</a><br><br>
-    </div>
+        <p>Wenn du vorher erfahren möchtest worum es in meiner Masterarbeit geht und was der Sinn und Zweck des Ganzen
+            ist, dann klicke <a href="introduction">hier</a>.</p>
 </body>

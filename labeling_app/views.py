@@ -50,6 +50,10 @@ def welcome(request):
     return render(request, "labeling_app/welcome.html")
 
 
+def introduction(request):
+    return render(request, "labeling_app/introduction.html")
+
+
 def warning(request):
     return render(request, "labeling_app/warning.html")
 
