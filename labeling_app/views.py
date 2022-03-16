@@ -108,12 +108,23 @@ def labelling(request):
         )
     )
     number_of_unlabeled_messages = len(unlabeled_messages)
-    if number_of_unlabeled_messages > 0:
+    while number_of_unlabeled_messages > 0:
         random_message = random.sample(unlabeled_messages, 1)[0]
+        # If message has already been labeled by three people, choose a different one
+        if (
+            len(
+                MessageMisconception.objects.filter(message_id=random_message.id)
+                .values("user_id")
+                .distinct()
+            )
+            >= 3
+        ):
+            unlabeled_messages.remove(random_message)
+            number_of_unlabeled_messages = len(unlabeled_messages)
+            continue
         context = {"user": user, "message": random_message, "form": LabelForm()}
         return render(request, "labeling_app/label.html", context)
-    else:
-        return HttpResponseRedirect("done")
+    return HttpResponseRedirect("done")
 
 
 def done(request):
